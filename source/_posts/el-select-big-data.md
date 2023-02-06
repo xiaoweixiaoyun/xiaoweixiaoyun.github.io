@@ -4,7 +4,7 @@ date: 2022/01/26
 tags: vue,自适应
 categories: Element-UI
 description: 「el-select」下拉选择时候遇到一个问题，当渲染下拉选项的「options」的数据量过多时「本项目中的数据条目已过万」，就会出现下拉选择器卡顿的情况，尤其是在模糊匹配过滤的情况下，显得十分的卡顿。
-keywords: vue,大数据，渲染卡顿
+keywords: vue,大数据,渲染卡顿
 cover: /img/md/vue.jpg
 ---
 

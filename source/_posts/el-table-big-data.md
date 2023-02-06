@@ -4,7 +4,7 @@ date: 2022/01/07
 tags: vue,大数据，渲染卡顿
 categories: Element-UI
 description: 页面数据量大，在没有分页的情况下操作表格，导致渲染卡顿，甚至奔溃。
-keywords: vue,大数据，渲染卡顿
+keywords: vue,大数据,渲染卡顿
 cover: /img/md/vue.jpg
 ---
 
