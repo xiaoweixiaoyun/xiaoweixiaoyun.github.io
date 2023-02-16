@@ -633,7 +633,7 @@ aside:
       link: https://xiaoweixiaoyun.github.io/
   card_announcement:
     enable: true
-    content: 问题不大 加油就好
+    content: 努力成为优秀的人，躺平最好
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
@@ -672,7 +672,7 @@ busuanzi:
 # Time difference between publish date and now (網頁運行時間)
 # Formal: Month/Day/Year Time or Year/Month/Day Time
 runtimeshow:
-  enable: true
+  enable: false
   publish_date: 6/7/2020 00:00:00  
 
 # Aside widget - Newest Comments
@@ -928,10 +928,10 @@ CDN:
 
 # 页面樱花飘落动效
 sakura:
-  enable: false
+  enable: true
 
 electric_clock:
-  enable: true # 开关
+  enable: false # 开关
   priority: 5 #过滤器优先权
   enable_page: all # 应用页面
   exclude:

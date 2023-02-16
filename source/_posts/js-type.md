@@ -1,10 +1,10 @@
 ---
-title: Js的数据类型
-date: 2021/09/16
-tags: 前端,JS,类型
+title: JS数据类型判断
+date: 2022/01/24
+tags: 前端,JS,工具类
 categories: JS
-description: Javascript数据类型分为基本数据类型与引用数据类型
-keywords: 前端,JS,类型
+description: js数据类型判断一共有四种方法
+keywords: 前端,JS,工具类
 cover: /img/md/js.jpg
 ---
 
@@ -19,139 +19,142 @@ cover: /img/md/js.jpg
 
 注：Symbol 是 ES6 引入了一种新的原始数据类型，表示独一无二的值。
 
-# 数据类型判断
+# typeof
+>typeof 是一个操作符，其右侧跟一个一元表达式，并返回这个表达式的数据类型。返回的结果用该类型的字符串(全小写字母)形式表示，包括以下 7 种：number、boolean、symbol、string、object、undefined、function 等。
 
-## typeof
-
->基本数据类型中：Number，String，Boolean，undefined 以及引用数据类型中Function ,可以使用typeof检测数据类型,分别返回对应的数据类型小写字符。
-另：用typeof检测构造函数创建的Number，String，Boolean都返回object
-基本数据类型中：null 。引用数据类型中的：Array，Object，Date，RegExp。不可以用typeof检测。都会返回小写的object
 ```javascript
-console.log(
-    typeof 100, //"number"
-    typeof 'abc', //"string"
-    typeof false, //"boolean"
-    typeof undefined, //"undefined"
-    typeof null, //"object"
-    typeof [1,2,3], //"object"
-    typeof {a:1,b:2,c:3}, //"object"
-    typeof function(){console.log('aaa');}, //"function"
-    typeof new Date(), //"object"
-    typeof /^[a-zA-Z]{5,20}$/, //"object"
-    typeof new Error() //"object"
-    typeof new Number(100), //'object'
-    typeof new String('abc'),// 'string'
-    typeof new Boolean(true),//'boolean'
-);
+typeof ''; // string 有效
+typeof 1; // number 有效
+typeof Symbol(); // symbol 有效
+typeof true; //boolean 有效
+typeof undefined; //undefined 有效
+typeof null; //object 无效
+typeof [] ; //object 无效
+typeof new Function(); // function 有效
+typeof new Date(); //object 无效
+typeof new RegExp(); //object 无效
 ```
+有些时候，typeof 操作符会返回一些令人迷惑但技术上却正确的值：
 
-## instanceof
+- 对于基本类型，除 null 以外，均可以返回正确的结果。
+- 对于引用类型，除 function 以外，一律返回 object 类型。
+- 对于 null ，返回 object 类型。
+- 对于 function 返回  function 类型。
 
->除了使用typeof来判断，还可以使用instanceof。instanceof运算符需要指定一个构造函数，或者说指定一个特定的类型，它用来判断这个构造函数的原型是否在给定对象的原型链上。
+其中，null 有属于自己的数据类型 Null ， 引用类型中的 数组、日期、正则 也都有属于自己的具体类型，而 typeof 对于这些类型的处理，只返回了处于其原型链最顶端的 Object 类型，没有错，但不是我们想要的结果。
+
+<font color='red'>typeof 对对象类型的值的类型不能作出准确判断，能准确判断出基本数据类型的值！</font>
+
+# instanceof
+>instanceof 是用来判断 A 是否为 B 的实例，表达式为：A instanceof B，如果 A 是 B 的实例，则返回 true,否则返回 false。 在这里需要特别注意的是：instanceof 检测的是原型，我们用一段伪代码来模拟其内部执行过程：
+
 ```javascript
-console.log(
-    100 instanceof Number, //false
-    'dsfsf' instanceof String, //false
-    false instanceof Boolean, //false
-    undefined instanceof Object, //false
-    null instanceof Object, //false
-    [1,2,3] instanceof Array, //true
-    {a:1,b:2,c:3} instanceof Object, //true
-    function(){console.log('aaa');} instanceof Function, //true
-    new Date() instanceof Date, //true
-    /^[a-zA-Z]{5,20}$/ instanceof RegExp, //true
-    new Error() instanceof Error //true
-)
-```
-
-基本数据类型中：Number，String，Boolean。字面量值不可以用instanceof检测，但是构造函数创建的值可以，如下：
-```javascript
-var num = new Number(123);
-var str = new String('dsfsf');
-var boolean = new Boolean(false);
-```
-
-还需要注意null和undefined都返回了false，这是因为它们的类型就是自己本身，并不是Object创建出来它们，所以返回了false。
-
-## constructor
-
->onstructor是prototype对象上的属性，指向构造函数。根据实例对象寻找属性的顺序，若实例对象上没有实例属性或方法时，就去原型链上寻找，因此，实例对象也是能使用constructor属性的。
-
-如果输出一个类型的实例的constructor，就如下所示：
-```javascript
-console.log(new Number(123).constructor)
-//ƒ Number() { [native code] }
-```
-
-可以看到它指向了Number的构造函数，因此，可以使用num.constructor==Number来判断一个变量是不是Number类型的。
-```javascript
-var num  = 123;
-var str  = 'abcdef';
-var bool = true;
-var arr  = [1, 2, 3, 4];
-var json = {name:'wenzi', age:25};
-var func = function(){ console.log('this is function'); }
-var und  = undefined;
-var nul  = null;
-var date = new Date();
-var reg  = /^[a-zA-Z]{5,20}$/;
-var error= new Error();
-
-function Person(){
-  
+instanceof (A,B) = {
+    var L = A.__proto__;
+    var R = B.prototype;
+    if(L === R) {
+        // A的内部属性 __proto__ 指向 B 的原型对象
+        return true;
+    }
+    return false;
 }
-var tom = new Person();
-
-// undefined和null没有constructor属性
-console.log(
-    tom.constructor==Person,
-    num.constructor==Number,
-    str.constructor==String,
-    bool.constructor==Boolean,
-    arr.constructor==Array,
-    json.constructor==Object,
-    func.constructor==Function,
-    date.constructor==Date,
-    reg.constructor==RegExp,
-    error.constructor==Error
-);
-//所有结果均为true
-
 ```
-除了undefined和null报错之外，其他类型都可以通过constructor属性来判断类型。
+从上述过程可以看出，当 A 的 __proto__ 指向 B 的 prototype 时，就认为 A 就是 B 的实例，我们再来看几个例子：
+```javascript
+[] instanceof Array; // true
+{} instanceof Object;// true
+new Date() instanceof Date;// true
+ 
+function Person(){};
+new Person() instanceof Person;
+ 
+[] instanceof Object; // true
+new Date() instanceof Object;// true
+new Person instanceof Object;// true
+```
+我们发现，虽然 instanceof 能够判断出 [ ] 是Array的实例，但它认为 [ ] 也是Object的实例，为什么呢？
 
-## 使用Object.prototype.toString.call()检测对象类型
+我们来分析一下 [ ]、Array、Object 三者之间的关系：
 
->可以通过toString() 来获取每个对象的类型。为了每个对象都能通过 Object.prototype.toString() 来检测，需要以 Function.prototype.call() 或者 Function.prototype.apply() 的形式来调用，传递要检查的对象作为第一个参数，称为thisArg。
+从 instanceof 能够判断出 [ ].__proto__  指向 Array.prototype，而 Array.prototype.__proto__ 又指向了Object.prototype，最终 Object.prototype.__proto__ 指向了null，标志着原型链的结束。因此，[]、Array、Object 就在内部形成了一条原型链：
+
+![原型链](/img/md/pictures/849589-20160112232510850-2003340583.png)
+
+从原型链可以看出，[] 的 __proto__  直接指向Array.prototype，间接指向 Object.prototype，所以按照 instanceof 的判断规则，[] 就是Object的实例。依次类推，类似的 new Date()、new Person() 也会形成一条对应的原型链 。<b>因此，instanceof 只能用来判断两个对象是否属于实例关系， 而不能判断一个对象实例具体属于哪种类型。</b>
+
+
+instanceof 操作符的问题在于，它假定只有一个全局执行环境。如果网页中包含多个框架，那实际上就存在两个以上不同的全局执行环境，从而存在两个以上不同版本的构造函数。如果你从一个框架向另一个框架传入一个数组，那么传入的数组与在第二个框架中原生创建的数组分别具有各自不同的构造函数。
 
 ```javascript
-var toString = Object.prototype.toString;
-
-toString.call(123); //"[object Number]"
-toString.call('abcdef'); //"[object String]"
-toString.call(true); //"[object Boolean]"
-toString.call([1, 2, 3, 4]); //"[object Array]"
-toString.call({name:'wenzi', age:25}); //"[object Object]"
-toString.call(function(){ console.log('this is function'); }); //"[object Function]"
-toString.call(undefined); //"[object Undefined]"
-toString.call(null); //"[object Null]"
-toString.call(new Date()); //"[object Date]"
-toString.call(/^[a-zA-Z]{5,20}$/); //"[object RegExp]"
-toString.call(new Error()); //"[object Error]"
+var iframe = document.createElement('iframe');
+document.body.appendChild(iframe);
+xArray = window.frames[0].Array;
+var arr = new xArray(1,2,3); // [1,2,3]
+arr instanceof Array; // false
 ```
+<font color='red'>instanceof 只能用于判断对象，基本数据类型值不能判断，所以也不能准确的判断出所有的类型！</font>
 
-这样可以看到使用Object.prototype.toString.call()的方式来判断一个变量的类型是最准确的方法。
+# constructor
+当一个函数 F被定义时，JS引擎会为F添加 prototype 原型，然后再在 prototype上添加一个 constructor 属性，并让其指向 F 的引用。如下所示：
+![引用1](/img/md/pictures/849589-20170508125250566-1896556617.png)
 
-# 封装一个获取变量准确类型的函数
+当执行 var f = new F() 时，F 被当成了构造函数，f 是F的实例对象，此时 F 原型上的 constructor 传递到了 f 上，因此 f.constructor == F
+![引用2](/img/md/pictures/849589-20170508125714941-1649387639.png)
+
+可以看出，F 利用原型对象上的 constructor 引用了自身，当 F 作为构造函数来创建对象时，原型上的 constructor 就被遗传到了新创建的对象上， 从原型链角度讲，构造函数 F 就是新对象的类型。这样做的意义是，让新对象在诞生以后，就具有可追溯的数据类型。
+
+细节问题：
+![细节问题](/img/md/pictures/849589-20170508132757347-1999338357.png)
+
+
+>1. null 和 undefined 是无效的对象，因此是不会有 constructor 存在的，这两种类型的数据需要通过其他方式来判断。
+>2. 函数的 constructor 是不稳定的，这个主要体现在自定义对象上，当开发者重写 prototype 后，原有的 constructor 引用会丢失，constructor 会默认为 Object
+
+<font color='red'>constructor能判断基本数据类型string、number、boolean和对象类型（array、function等等），但是它不能判断undefined和null。所以它判断类型值也不十分准确！</font>
+
+# Object.prototype.toString.call()
+
+toString() 是 Object 的原型方法，调用该方法，默认返回当前对象的 [[Class]] 。这是一个内部属性，其格式为 [object Xxx] ，其中 Xxx 就是对象的类型。
+
+对于 Object 对象，直接调用 toString()  就能返回 [object Object] 。而对于其他对象，则需要通过 call / apply 来调用才能返回正确的类型信息。
 
 ```javascript
-function gettype(obj) {
-  var type = typeof obj;
-  //如果不是object类型的数据，直接用typeof就能判断出来
-  if (type !== 'object') {
-    return type;
-  }
-  //如果是object类型数据，准确判断类型必须使用Object.prototype.toString.call(obj)的方式才能判断
-  return Object.prototype.toString.call(obj).replace(/^\[object (\S+)\]$/, '$1');
+Object.prototype.toString.call('') ;   // [object String]
+Object.prototype.toString.call(1) ;    // [object Number]
+Object.prototype.toString.call(true) ; // [object Boolean]
+Object.prototype.toString.call(Symbol()); //[object Symbol]
+Object.prototype.toString.call(undefined) ; // [object Undefined]
+Object.prototype.toString.call(null) ; // [object Null]
+Object.prototype.toString.call(new Function()) ; // [object Function]
+Object.prototype.toString.call(new Date()) ; // [object Date]
+Object.prototype.toString.call([]) ; // [object Array]
+Object.prototype.toString.call(new RegExp()) ; // [object RegExp]
+Object.prototype.toString.call(new Error()) ; // [object Error]
+Object.prototype.toString.call(document) ; // [object HTMLDocument]
+Object.prototype.toString.call(window) ; //[object global] window 是全局对象 global 的引用
+```
+
+# 工具方式实现
+```javascript
+export function type(e) {
+	var ret = typeof e;
+	var template = {
+		//引用值对象
+		'[object Array]': 'array', //数组
+		'[object Object]': 'object', //对象
+		'[object Number]': 'number-object', //包装类
+		'[object Boolean]': 'boolean-object', //包装类
+		'[object String]': 'string-object', //包装类
+		'[object Date]': 'date-object', //日期
+		'[object RegExp]': 'regexp-object' //正则表达式
+	};
+	if (e == null) {
+		return e;
+	} else if (ret == 'object') {
+		var str = Object.prototype.toString.call(e);
+		return template[str];
+	} else {
+		return typeof ret;
+	}
 }
 ```
