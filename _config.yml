@@ -105,5 +105,5 @@ theme: butterfly
 deploy:
   type: git
   repository: 
-    github: https://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@github.com/xiaoweixiaoyun/xiaoweixiaoyun.github.io.git
+    github: https://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@github.com/xiaoweixiaoyun/xiaoweixiaoyun.github.io.git
   branch: master
