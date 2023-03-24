@@ -1,10 +1,10 @@
 ---
 title: Vue常用工具类-Cookie
 date: 2021/07/15
-tags: cookie,缓存
+tags: cookie,存储
 categories: Vue
 description: 储存在用户本地终端上的数据
-keywords: cookie,缓存
+keywords: cookie,存储
 cover: /img/md/vue.jpg
 ---
 
