@@ -1,5 +1,5 @@
 ---
-title: for 循环与 forEach 的区别 ?
+title: for 循环与 forEach 的区别?
 date: 2023/02/08
 tags: 面试,问答
 categories: 每日一问
