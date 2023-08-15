@@ -7,7 +7,7 @@ type: "link"
   
 ---
 ## 我的链接
-{% note success %}
+\{% note success %\}
 
 ## 友链格式
 
@@ -16,4 +16,4 @@ type: "link"
 - 网站描述：能与你一起成长，我荣幸之至
 - 网站 Logo/头像：[https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302]( https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302)
 
-{% endnote %}
+\{% endnote %\}
