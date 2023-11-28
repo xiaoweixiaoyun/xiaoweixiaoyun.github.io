@@ -5,20 +5,14 @@ tags: java,打印机，打印，自定义打印，打印参数
 categories: JAVA
 description: 实现在CS端调用本地打印机服务打印PDF的功能
 keywords: java,打印机，打印，自定义打印，打印参数
-cover: /img/md/java.jpg
+cover: /img/md/java.png
 ---
 
-# 1、项目名称
-Printer
-
-# 2、项目版本号
-V1.0.0
-
-# 3、项目描述
+## 1、项目描述
 实现在CS端调用本地打印机服务打印PDF的功能
 
-# 4、依赖项
-> 1. 运行环境：jdk8 $\uparrow$
+## 2、依赖项
+> 1. 运行环境：jdk8及以上
 > 2. 导入依赖：[pdfbox](https://github.com/apache/pdfbox/tree/trunk/pdfbox)
 > 3. 导入工具类：PrintUtil.java
 
@@ -31,11 +25,11 @@ maven导入依赖示例：
 </dependency>
 ```
 
-# 5、使用说明
-## 5.1 获取打印机服务列表
+## 3、使用说明
+### 3.1 获取打印机服务列表
 > 调用工具类`PrintUtil.java`中`PrintUtil.selectPrintService()`的方法
 
-## 5.2 执行打印
+### 3.2 执行打印
 > 调用工具类`PrintUtil.java`中`PrintUtil.print()`的方法
 
 
@@ -64,7 +58,7 @@ maven导入依赖示例：
 | false | 打印失败 |
 
 
-# 6、使用示例
+## 4、使用示例
 
 ```java
 // 1.获取服务列表
@@ -78,21 +72,8 @@ boolean flag = PrintUtil.print(filepath, printServiceHashMap.get("导出为WPS P
 System.out.println(flag);
 ```
 
-# 7、授权信息
-无
-# 8、发布日期
-2023-11-20
-
-# 9、作者信息
-xiaowei
-
-# 10、下载链接
+## 5、下载链接
 [Printer.zip](/file/Printer.zip)
 
-# 11、变更日志:
-2023-11-20：工具类提供两个方法（1、获取打印列表；2、打印）
-
-# 12、效果演示
-![Dingtalk_20231120144615.jpg](https://cdn.nlark.com/yuque/0/2023/jpeg/2516240/1700462798220-66bbfa0c-697c-4803-8d3c-2f7b32a50619.jpeg#averageHue=%23dfddd8&clientId=ud7c121ef-d4ee-4&from=ui&id=u3a369ee4&originHeight=300&originWidth=430&originalType=binary&ratio=1&rotation=0&showTitle=false&size=22606&status=done&style=none&taskId=ub8f98982-c46d-4ab1-937a-4d3311ceb60&title=)
-# 13、支持与反馈
-无
+## 6、效果演示
+![Dingtalk_20231120144615.jpg](/source/img/md/java-print/Dingtalk_20231120144615.jpg)
