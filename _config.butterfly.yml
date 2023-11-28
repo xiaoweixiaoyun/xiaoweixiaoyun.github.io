@@ -551,10 +551,9 @@ click_heart:
 ClickShowText:
   enable: true
   text:
-    - 你
-    - 是
-    - 大
-    - 傻瓜
+    - 加我
+    - 微信
+    - 17853538076
   fontSize: 15px
   random: false
   mobile: false
@@ -945,3 +944,6 @@ electric_clock:
   clock_css: https://npm.elemecdn.com/hexo-butterfly-clock/lib/clock.min.css
   clock_js: https://npm.elemecdn.com/hexo-butterfly-clock/lib/clock.min.js
   ip_api: https://pv.sohu.com/cityjson?ie=utf-8
+
+encrypt:
+	enable:true

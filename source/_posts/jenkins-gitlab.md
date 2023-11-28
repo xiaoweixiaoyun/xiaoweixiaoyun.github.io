@@ -1,6 +1,7 @@
 ---
 title: jenkins自动部署（远程编译、部署）
 date: 2023/08/15
+password: luoping123
 tags: jenkins,部署
 categories: 运维
 description:  节约每次上线部署时间，提高作业效率，保证正确性。
@@ -9,35 +10,54 @@ cover: /img/md/jenkins.png
 ---
 
 # 设置参数
-## 设置分支参数：branch（develop）
-## 设置工程名参数：project（logisticsif-back、logisticsif-front）
+## 设置分支参数：branch（develop）、server（***.***.**.**）
+## 设置工程名参数：project（***-back、***-web）
 
-## 编写生成镜像脚本
+## 编写生成镜像脚本（web举例）
 ```shell
-echo `date +"%Y%m%d%H%M%S%N" | cut -b 1-16` >> $JENKINS_HOME/workspace/$JOB_NAME/$BUILD_DISPLAY_NAME
-PJ_LOGISTICSIF_TIMESTAMP=`cat $JENKINS_HOME/workspace/$JOB_NAME/$BUILD_DISPLAY_NAME`
-ssh systemuser@172.21.16.85 "cd /tmp && rm -rf $project"
-ssh systemuser@172.21.16.85 "cd /tmp && git clone --depth=1 -b $branch git@docker环境服务器地址:project-trial/md/control/$project.git"
-ssh systemuser@172.21.16.85 "cd /tmp/$project && docker build -t docker环境服务器地址/project-trial/md/control/$project:$PJ_LOGISTICSIF_TIMESTAMP ."
-ssh systemuser@172.21.16.85 "docker logout docker环境服务器地址"
-ssh systemuser@172.21.16.85 "echo password | docker login docker环境服务器地址 --username 用户名 --password-stdin"
-ssh systemuser@172.21.16.85 "docker push docker环境服务器地址/project-trial/md/control/$project:$PJ_LOGISTICSIF_TIMESTAMP"
-ssh systemuser@172.21.16.85 "docker logout docker环境服务器地址"
-ssh systemuser@172.21.16.85 "docker rmi docker环境服务器地址/project-trial/md/control/$project:$PJ_LOGISTICSIF_TIMESTAMP"
+# Build Steps
+# 执行 shell
+echo "tag=$(date +%Y%m%d).${BUILD_NUMBER}.${branch}" > /tmp/jenkins-env-***-web-tag
+
+# 注入环境变量
+# 属性文件路劲
+/tmp/jenkins-env-***-web-tag
+
+# 执行 shell
+rm -rf ***-web
+git clone https://用户名:密码@code.trechina.cn/gitlab/project-trial/hbs/***-web.git
+
+cd ***-web
+git checkout $branch
+
+cd ***-web
+docker build -t code.trechina.cn/project-trial/hbs/***-web:${tag} .
+
+docker login code.trechina.cn -u 用户名 -p 密码
+docker push code.trechina.cn/project-trial/hbs/***-web:${tag}
+docker logout code.trechina.cn
+
+
+# 构建后操作
+announcement-deploy
+# 参数传递
+server=${server}
+app=web
+tag=${tag}
 ```
 
-## 编写容器启动脚本（docker-compose.yml）[下载地址](/file/logisticeif.zip)
+## 编写容器启动脚本（docker-compose.yml）[下载地址](/file/conf.zip)
 ```shell
 version: "3.8"
 
 services:
-  logisticsifview:
-    image: docker环境服务器地址/project-trial/md/control/logisticsif-front:2023081509515721
+  ***view:
+    image: docker环境服务器地址/project-trial/md/control/***-web:2023081509515721
     restart: always
     tty: true
     network_mode: host
-  logisticsifapi:
-    image: docker环境服务器地址/project-trial/md/control/logisticsif-back:2023081509530949
+  ***api:
+    image: docker环境服务器地址/project-trial/md/control/***-back:2023081509530949
     restart: always
     tty: true
     network_mode: host
@@ -56,18 +76,23 @@ services:
       - ./conf/nginx/etc/timezone:/etc/timezone
       - ./logs/nginx:/var/log/nginx
     depends_on:
-      - logisticsifview
-      - logisticsifapi
+      - ***view
+      - ***api
     network_mode: host
 ```
 
 
 ## 调用容器启动脚本
+### 设置分支参数：server、app（web/back）、tag
 ```shell
-PJ_LOGISTICSIF_TIMESTAMP=`cat $JENKINS_HOME/workspace/$JOB_NAME/$BUILD_DISPLAY_NAME`
-ssh manager@10.100.1.125 "docker logout docker环境服务器地址"
-ssh manager@10.100.1.125 "echo password | docker login docker环境服务器地址 --username 用户名 --password-stdin"
-ssh manager@10.100.1.125 "docker pull docker环境服务器地址/project-trial/md/control/$project:$PJ_LOGISTICSIF_TIMESTAMP"
-ssh manager@10.100.1.125 "docker logout docker环境服务器地址"
-ssh manager@10.100.1.125 "cd /home/manager/${ENV} && docker-compose down && sed -i "s/${project}:[0-9]*/${project}:${PJ_LOGISTICSIF_TIMESTAMP}/g" docker-compose.yml && docker-compose up -d"
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null systemuser@${server} "docker login code.trechina.cn -u 用户名 -p 密码"
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null systemuser@${server} "sed -i 's|\(image: code.trechina.cn/project-trial/hbs/***-'${app}':\).*|\1'${tag}'|' /home/systemuser/announcement/docker-compose.yaml"
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null systemuser@${server} "cd /home/systemuser/announcement/ && docker compose up -d"
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null systemuser@${server} "docker logout code.trechina.cn"
 ```
+
+## 截图说明
+
+## 注意事项
+> ssh链接报错：-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null  
+ssh服务端需要添加客服端秘钥
