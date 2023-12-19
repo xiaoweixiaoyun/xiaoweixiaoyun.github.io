@@ -551,8 +551,8 @@ click_heart:
 ClickShowText:
   enable: true
   text:
-    - 加我
-    - 微信
+    - 接私活
+    - 加微
     - 17853538076
   fontSize: 15px
   random: false

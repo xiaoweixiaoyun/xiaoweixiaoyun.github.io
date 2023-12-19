@@ -8,10 +8,10 @@ keywords: java,打印机，打印，自定义打印，打印参数
 cover: /img/md/java.png
 ---
 
-## 1、项目描述
+## 项目描述
 实现在CS端调用本地打印机服务打印PDF的功能
 
-## 2、依赖项
+## 依赖项
 > 1. 运行环境：jdk8及以上
 > 2. 导入依赖：[pdfbox](https://github.com/apache/pdfbox/tree/trunk/pdfbox)
 > 3. 导入工具类：PrintUtil.java
@@ -25,11 +25,11 @@ maven导入依赖示例：
 </dependency>
 ```
 
-## 3、使用说明
-### 3.1 获取打印机服务列表
+## 使用说明
+### 获取打印机服务列表
 > 调用工具类`PrintUtil.java`中`PrintUtil.selectPrintService()`的方法
 
-### 3.2 执行打印
+### 执行打印
 > 调用工具类`PrintUtil.java`中`PrintUtil.print()`的方法
 
 
@@ -58,7 +58,7 @@ maven导入依赖示例：
 | false | 打印失败 |
 
 
-## 4、使用示例
+## 使用示例
 
 ```java
 // 1.获取服务列表
@@ -72,8 +72,8 @@ boolean flag = PrintUtil.print(filepath, printServiceHashMap.get("导出为WPS P
 System.out.println(flag);
 ```
 
-## 5、下载链接
+## 下载链接
 [Printer.zip](/file/Printer.zip)
 
-## 6、效果演示
-![Dingtalk_20231120144615.jpg](/source/img/md/java-print/Dingtalk_20231120144615.jpg)
+## 效果演示
+![Dingtalk_20231120144615.jpg](/img/md/java-print/Dingtalk_20231120144615.jpg)
