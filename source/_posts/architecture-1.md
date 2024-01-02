@@ -37,7 +37,7 @@ cover: /img/md/architecture.jpeg
 - 接口简单、精炼，具有信息隐藏能力
 - 尽可能地复用已有模块
 
-![传统MIS系统软甲架构](/img/md/architecture-1/Snipaste_2023-12-27_15-31-28.png)
+![传统MIS系统软甲架构](/img/md/architecture/image2.png)
 
 4. 软件架构影响软件开发的各个阶段
 - 需求阶段：把软件架构有的概念引入需求分析阶段，有助于保证需求规约和系统收割机之间的可追踪性和一致性。
