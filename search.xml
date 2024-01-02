@@ -4,11 +4,61 @@
   
     
     <entry>
+      <title>系统架构设计师-学习第三天</title>
+      <link href="/2024/01/03/architecture-3/"/>
+      <url>/2024/01/03/architecture-3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="计算机系统基础知识"><a href="#计算机系统基础知识" class="headerlink" title="计算机系统基础知识"></a>计算机系统基础知识</h1><h2 id="计算机系统概述"><a href="#计算机系统概述" class="headerlink" title="计算机系统概述"></a>计算机系统概述</h2><p> <img src="/img/md/architecture/image3.png" alt="典型计算机系统的组成"><br> <img src="/img/md/architecture/image4.png" alt="计算机系统的分类示意图"></p><h2 id="计算机硬件"><a href="#计算机硬件" class="headerlink" title="计算机硬件"></a>计算机硬件</h2><h3 id="计算机硬件组成"><a href="#计算机硬件组成" class="headerlink" title="计算机硬件组成"></a>计算机硬件组成</h3><ul><li>处理器</li><li>存储器</li><li>总线</li><li>接口</li><li>外部设备</li></ul><h3 id="处理器（CPU）"><a href="#处理器（CPU）" class="headerlink" title="处理器（CPU）"></a>处理器（CPU）</h3><blockquote><p>作为计算机系统运算和控制的核心部件，经历了长期演化过程</p></blockquote><p><img src="/img/md/architecture/image5.png" alt="典型的处理器体系结构示意图"></p><h3 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h3><blockquote><p>利用半导体、磁、光等介质制成用于存储数据的电子设备</p></blockquote><ol><li>片上缓存：在处理器核心中直接集成的缓存，一般为SRAM结构，实现数据的快速读取。它容量较小一般为16kB-512kB，按照不同的设计可能划分为一级或二级。</li><li>片外缓存：在处理器核心外的缓存，需要经过交换互联开发访问，一般也是由SRAM构成，容量较片上缓存略大，可以为256kB-4MB。按照层次被称为L2Cache或L3Cache，或者成为平台Cache。</li><li>主存（内存）：通常采用DRAM结构，以独立的部件&#x2F;芯片存在，通过总线与处理器链接。DRAM依赖不断充电维持其中的数据，容量在数百MB至数十GB之间。</li><li>外存：可以是磁带、磁盘、光盘和各类Flash等介质器件，这类设备访问速度慢，但容量大，且在掉点后能够保持其数据。</li></ol><h3 id="总线（Bus）"><a href="#总线（Bus）" class="headerlink" title="总线（Bus）"></a>总线（Bus）</h3><blockquote><p>是指计算机部件间遵循某一特定协议实现数据交换的形式，即以一种特定格式按照规定的控制逻辑实现部件间的数据传输。</p></blockquote><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><blockquote><p>是指同意计算机不同功能层之间的通信规则</p></blockquote><h3 id="外部设备"><a href="#外部设备" class="headerlink" title="外部设备"></a>外部设备</h3><blockquote><p>也成为外围设备，是计算机的非必要设备</p></blockquote><h2 id="计算机软件"><a href="#计算机软件" class="headerlink" title="计算机软件"></a>计算机软件</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软考知识 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习,软考 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>系统架构设计师-学习第二天</title>
+      <link href="/2024/01/02/architecture-2/"/>
+      <url>/2024/01/02/architecture-2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><blockquote><p>系统架构设计师（System Architecture Designer），决定系统健壮性和生命周期的长短。</p></blockquote><h2 id="系统架构设计师概述"><a href="#系统架构设计师概述" class="headerlink" title="系统架构设计师概述"></a>系统架构设计师概述</h2><blockquote><p>是项目开发活动中的众多角色之一，它可以是一个人或一个小组，也可以是一个团队。</p></blockquote><h3 id="架构设计师的定义、职责和任务"><a href="#架构设计师的定义、职责和任务" class="headerlink" title="架构设计师的定义、职责和任务"></a>架构设计师的定义、职责和任务</h3><h4 id="架构设计师、架构设计和架构的关系图"><a href="#架构设计师、架构设计和架构的关系图" class="headerlink" title="架构设计师、架构设计和架构的关系图"></a>架构设计师、架构设计和架构的关系图</h4><p><img src="/img/md/architecture/image1.jpg" alt="架构设计师、架构设计和架构的关系图"></p><h4 id="系统架构师的任务"><a href="#系统架构师的任务" class="headerlink" title="系统架构师的任务"></a>系统架构师的任务</h4><ol><li>领导与协调整个项目中的技术活动（分析、设计和实施）。</li><li>推动主要的技术决策并最终表达为系统架构。</li><li>确定系统架构，并促使其架构设计的文档化，整理的文档化应包含需求、设计、实施和部署等“视图”。</li></ol><h3 id="架构设计师应具备的专业素质"><a href="#架构设计师应具备的专业素质" class="headerlink" title="架构设计师应具备的专业素质"></a>架构设计师应具备的专业素质</h3><ol><li>掌握业务领域的知识</li><li>掌握技术知识</li><li>掌握设计技能</li><li>具有编程能力</li><li>具备沟通能力</li><li>具有决策力</li><li>知道组织策略</li><li>应是谈判专家</li></ol><h3 id="架构设计师的知识结构"><a href="#架构设计师的知识结构" class="headerlink" title="架构设计师的知识结构"></a>架构设计师的知识结构</h3><ol><li>战略规划能力</li><li>业务流程建模能力</li><li>信息数据架构能力</li><li>技术架构设计和实现能力</li><li>应用系统架构的解决和实现能力</li><li>基本IT知识及基础设施、资源调配能力</li><li>信息安全技术支持与管理保障能力</li><li>IT审计、治理与基本需求的分析和获取能力</li><li>面向软件系统可靠性与系统生命周期的质量保障服务能力</li><li>对新技术与新概念的理解、掌握和分析能力</li></ol><h2 id="如何成为一名好的系统架构设计师"><a href="#如何成为一名好的系统架构设计师" class="headerlink" title="如何成为一名好的系统架构设计师"></a>如何成为一名好的系统架构设计师</h2><ol><li>作为领导者</li><li>作为开发者</li><li>作为系统综合者</li><li>具备企业家思维</li><li>具备战略技术专家的权威思维和战术思维</li><li>具备良好的沟通能力</li></ol><h2 id="系统架构师的演化"><a href="#系统架构师的演化" class="headerlink" title="系统架构师的演化"></a>系统架构师的演化</h2><ol><li>工程师</li><li>高级工程师</li><li>技术专家</li><li>系统架构师（初级）</li><li>系统架构师（中级）</li><li>系统架构师（高级）</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软考知识 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习,软考 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>系统架构设计师-学习第一天</title>
       <link href="/2023/12/27/architecture-1/"/>
       <url>/2023/12/27/architecture-1/</url>
       
-        <content type="html"><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><blockquote><p>系统架构设计师（System Architecture Designer），决定系统健壮性和生命周期的长短。</p></blockquote><h2 id="系统架构概述"><a href="#系统架构概述" class="headerlink" title="系统架构概述"></a>系统架构概述</h2><ul><li>1946年世界第一台计算机诞生</li><li>电子数字积分器和计算机（ENIAC）</li><li>离散变量自动电子计算机（EDVAC）（冯.若依曼）<h3 id="系统架构的定义及发展历程"><a href="#系统架构的定义及发展历程" class="headerlink" title="系统架构的定义及发展历程"></a>系统架构的定义及发展历程</h3><blockquote><p>是系统的一种整体的高层次的结构表示，是系统的骨架和根基，支撑和链接各个部分，我们通常把架构设计作为系统开发过程中需求分析阶段后的一个关键步骤，也不是不可或缺的工作要点。</p></blockquote></li></ul><ol><li>软件架构发展阶段</li></ol><ul><li>基础研究阶段（1968-1994年）</li><li>概念体系和核心技术形成阶段（1999-2000年）</li><li>理论体系完善与发展阶段（1996年至今）</li><li>普及应用阶段（2000年至今）</li></ul><ol start="2"><li>架构设计的作用</li></ol><ul><li>解决相对复杂的需求分析问题</li><li>解决非功能属性在系统占据重要位置的设计问题</li><li>解决生命周期长、扩展性需求高的系统整体结果问题</li><li>解决系统基于组件需要的集成问题</li><li>解决业务流程再造难得问题</li></ul><ol start="3"><li>模块化开发规则</li></ol><ul><li>最高模块内聚</li><li>最低耦合</li><li>模块大小适度</li><li>模块调用链的深度不可过多</li><li>接口简单、精炼，具有信息隐藏能力</li><li>尽可能地复用已有模块</li></ul><p><img src="/img/md/architecture-1/Snipaste_2023-12-27_15-31-28.png" alt="传统MIS系统软甲架构"></p><ol start="4"><li>软件架构影响软件开发的各个阶段</li></ol><ul><li>需求阶段：把软件架构有的概念引入需求分析阶段，有助于保证需求规约和系统收割机之间的可追踪性和一致性。</li><li>设计阶段：设计阶段是软件架构最早和最多的阶段。</li><li>实现阶段：将设计阶段设计的算法及数据类型用程序设计语言进行表示，满足设计、架构和需求分析的要求，从而得到满足设计需求的目标系统。</li><li>维护阶段：为了保证软具有良好的维护性，在软件架构中针对维护性目标进行分析时，需要对一些有关维护性的属性（如可扩展性、可替换性）进行规定。</li></ul><h3 id="软件架构的常用分类和建模方式"><a href="#软件架构的常用分类和建模方式" class="headerlink" title="软件架构的常用分类和建模方式"></a>软件架构的常用分类和建模方式</h3><ol><li>软件架构的常用分类</li></ol><ul><li><p>分层结构（最常见的四层结构，也是事实上的标准架构）</p><ul><li>表现层：用户界面，负责视觉和用户互动</li><li>业务层：实行业务逻辑</li><li>持久层：提供数据，SQL语句就放在这一层</li><li>数据库：保存数据<blockquote><p>有的项目在逻辑层和持久层中间加了一层服务层（Service），提供不同业务逻辑需要的一些通用接口。用户的请求将依次通过这四层的处理，不能跳过其中的任何一层。</p></blockquote></li></ul></li><li><p>事件驱动架构（Event-driven Architecture：是通过事件进行通信的软件架构）</p><ul><li>事件队列（Event Queue）：接受事件的入口。</li><li>分发器（Event Mediator）：将不同的事件分发到不同的业务逻辑单元。</li><li>事件通道（Event Channel）：分发器与处理器中间的联系渠道。</li><li>事件处理器（Event Processor）：实现业务逻辑，处理完成后会发出事件，触发下一步操作。<blockquote><p>对于简单的项目，事件队列、分发器和事件通道可以合为一体，整个软件就分成事件代理和事件处理器两部分。</p></blockquote></li></ul></li><li><p>微核架构（Microkernel Architecture：又称为插件架构（Plug-in Architecture），是指软件内核相对较小，主要功能和业务逻辑都通过插件实现）</p><blockquote><p>内核（Core）通常只包含系统运行的最小功能。插件则是相互独立的，插件之间的通信减少到最低，避免出现互相依赖的问题。</p></blockquote></li><li><p>微服务架构（Microservices Architecture：每一个服务就是一个独立的部署单元，这些单元是分布式的，互相解耦，通过远程通信协议（比如REST、SOAP）联系）。</p><ul><li>RESTFUL API模式：服务通过API提供，云服务就属于这一类；</li><li>RESTFUL 应用模式：服务通过传统的网路协议或者应用协议提供，背后通常是一个多功能的应用程序，常见于企业内部。</li><li>集中消息模式：采用消息代理（Message Broker）可以实现消息队列、负载均衡、统一日志和异常处理，缺点是会出现单点失败，消息代理可能要做集群。</li></ul></li><li><p>云架构（Cloud Architecture：主要解决扩展性和比并发的问题，也是最容易扩展的架构；由于每个处理都在内存里，需要进行数据持久化。）</p><ul><li>处理单元（Processing Unit）：实现业务逻辑。</li><li>虚拟中间件（Virtualized Middleware）：负责通信、保持回话控制（sessions）、数据复制、分布式处理和处理单元的部署。<ul><li>消息中间件（Messaging Grid）：管理用户请求和回话控制（sessions），当一个请求进来以后，它决定分配给哪一个处理单元。</li><li>数据中间件（Data Grid）：将数据复制到每一个处理单元，即数据同步。</li><li>处理中间件（Processing Grid）：可选，如果一个请求涉及不同类型的处理单元，该中间件负责协调处理单元。</li><li>部署中间件（Deploement Manager）：负责处理单元的启动和关闭，监控负载和响应时间，当负载增加，就新启动处理单元，负载减少，就关闭处理单元。</li></ul></li></ul></li></ul><ol start="2"><li>系统架构的常用建模方法</li></ol><ul><li>结构模型</li><li>框架模型</li><li>动态模型</li><li>过程模型</li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><blockquote><p>系统架构设计师（System Architecture Designer），决定系统健壮性和生命周期的长短。</p></blockquote><h2 id="系统架构概述"><a href="#系统架构概述" class="headerlink" title="系统架构概述"></a>系统架构概述</h2><ul><li>1946年世界第一台计算机诞生</li><li>电子数字积分器和计算机（ENIAC）</li><li>离散变量自动电子计算机（EDVAC）（冯.若依曼）<h3 id="系统架构的定义及发展历程"><a href="#系统架构的定义及发展历程" class="headerlink" title="系统架构的定义及发展历程"></a>系统架构的定义及发展历程</h3><blockquote><p>是系统的一种整体的高层次的结构表示，是系统的骨架和根基，支撑和链接各个部分，我们通常把架构设计作为系统开发过程中需求分析阶段后的一个关键步骤，也不是不可或缺的工作要点。</p></blockquote></li></ul><ol><li>软件架构发展阶段</li></ol><ul><li>基础研究阶段（1968-1994年）</li><li>概念体系和核心技术形成阶段（1999-2000年）</li><li>理论体系完善与发展阶段（1996年至今）</li><li>普及应用阶段（2000年至今）</li></ul><ol start="2"><li>架构设计的作用</li></ol><ul><li>解决相对复杂的需求分析问题</li><li>解决非功能属性在系统占据重要位置的设计问题</li><li>解决生命周期长、扩展性需求高的系统整体结果问题</li><li>解决系统基于组件需要的集成问题</li><li>解决业务流程再造难得问题</li></ul><ol start="3"><li>模块化开发规则</li></ol><ul><li>最高模块内聚</li><li>最低耦合</li><li>模块大小适度</li><li>模块调用链的深度不可过多</li><li>接口简单、精炼，具有信息隐藏能力</li><li>尽可能地复用已有模块</li></ul><p><img src="/img/md/architecture/image2.png" alt="传统MIS系统软甲架构"></p><ol start="4"><li>软件架构影响软件开发的各个阶段</li></ol><ul><li>需求阶段：把软件架构有的概念引入需求分析阶段，有助于保证需求规约和系统收割机之间的可追踪性和一致性。</li><li>设计阶段：设计阶段是软件架构最早和最多的阶段。</li><li>实现阶段：将设计阶段设计的算法及数据类型用程序设计语言进行表示，满足设计、架构和需求分析的要求，从而得到满足设计需求的目标系统。</li><li>维护阶段：为了保证软具有良好的维护性，在软件架构中针对维护性目标进行分析时，需要对一些有关维护性的属性（如可扩展性、可替换性）进行规定。</li></ul><h3 id="软件架构的常用分类和建模方式"><a href="#软件架构的常用分类和建模方式" class="headerlink" title="软件架构的常用分类和建模方式"></a>软件架构的常用分类和建模方式</h3><ol><li>软件架构的常用分类</li></ol><ul><li><p>分层结构（最常见的四层结构，也是事实上的标准架构）</p><ul><li>表现层：用户界面，负责视觉和用户互动</li><li>业务层：实行业务逻辑</li><li>持久层：提供数据，SQL语句就放在这一层</li><li>数据库：保存数据<blockquote><p>有的项目在逻辑层和持久层中间加了一层服务层（Service），提供不同业务逻辑需要的一些通用接口。用户的请求将依次通过这四层的处理，不能跳过其中的任何一层。</p></blockquote></li></ul></li><li><p>事件驱动架构（Event-driven Architecture：是通过事件进行通信的软件架构）</p><ul><li>事件队列（Event Queue）：接受事件的入口。</li><li>分发器（Event Mediator）：将不同的事件分发到不同的业务逻辑单元。</li><li>事件通道（Event Channel）：分发器与处理器中间的联系渠道。</li><li>事件处理器（Event Processor）：实现业务逻辑，处理完成后会发出事件，触发下一步操作。<blockquote><p>对于简单的项目，事件队列、分发器和事件通道可以合为一体，整个软件就分成事件代理和事件处理器两部分。</p></blockquote></li></ul></li><li><p>微核架构（Microkernel Architecture：又称为插件架构（Plug-in Architecture），是指软件内核相对较小，主要功能和业务逻辑都通过插件实现）</p><blockquote><p>内核（Core）通常只包含系统运行的最小功能。插件则是相互独立的，插件之间的通信减少到最低，避免出现互相依赖的问题。</p></blockquote></li><li><p>微服务架构（Microservices Architecture：每一个服务就是一个独立的部署单元，这些单元是分布式的，互相解耦，通过远程通信协议（比如REST、SOAP）联系）。</p><ul><li>RESTFUL API模式：服务通过API提供，云服务就属于这一类；</li><li>RESTFUL 应用模式：服务通过传统的网路协议或者应用协议提供，背后通常是一个多功能的应用程序，常见于企业内部。</li><li>集中消息模式：采用消息代理（Message Broker）可以实现消息队列、负载均衡、统一日志和异常处理，缺点是会出现单点失败，消息代理可能要做集群。</li></ul></li><li><p>云架构（Cloud Architecture：主要解决扩展性和比并发的问题，也是最容易扩展的架构；由于每个处理都在内存里，需要进行数据持久化。）</p><ul><li>处理单元（Processing Unit）：实现业务逻辑。</li><li>虚拟中间件（Virtualized Middleware）：负责通信、保持回话控制（sessions）、数据复制、分布式处理和处理单元的部署。<ul><li>消息中间件（Messaging Grid）：管理用户请求和回话控制（sessions），当一个请求进来以后，它决定分配给哪一个处理单元。</li><li>数据中间件（Data Grid）：将数据复制到每一个处理单元，即数据同步。</li><li>处理中间件（Processing Grid）：可选，如果一个请求涉及不同类型的处理单元，该中间件负责协调处理单元。</li><li>部署中间件（Deploement Manager）：负责处理单元的启动和关闭，监控负载和响应时间，当负载增加，就新启动处理单元，负载减少，就关闭处理单元。</li></ul></li></ul></li></ul><ol start="2"><li>系统架构的常用建模方法</li></ol><ul><li>结构模型</li><li>框架模型</li><li>动态模型</li><li>过程模型</li></ul>]]></content>
       
       
       <categories>
