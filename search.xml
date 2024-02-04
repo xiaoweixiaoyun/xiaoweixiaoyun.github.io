@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>系统架构设计师-学习第五天</title>
+      <link href="/2024/02/05/architecture-5/"/>
+      <url>/2024/02/05/architecture-5/</url>
+      
+        <content type="html"><![CDATA[<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><blockquote><p>早期数据库种类有3种， 分别是层次式数据库、网络式数据库和关系型数据库。目前最常见的数据库种类是关系型数据库和非关系型数据库。根据数据库存储体系分类， 还可分为关系型数据库、键值(Key-Value)数据库、列存储数据库、文档数据库和搜索引擎数据库等类型。</p></blockquote><h2 id="关系数据库"><a href="#关系数据库" class="headerlink" title="关系数据库"></a>关系数据库</h2><p>数据模型是数据特征的抽象， 它是对数据库组织方式的一种模型化表示， 是数据库系统的核心与基础。它具有数据结构、数据操作和完整性约束条件三要素。</p><h3 id="关系数据库设计的特点及方法"><a href="#关系数据库设计的特点及方法" class="headerlink" title="关系数据库设计的特点及方法"></a>关系数据库设计的特点及方法</h3><ol><li>特点：从数据结构即数据模型开始，并以数据模型为核心展开，这是数据库设计的一个主要特点； 静态结构设计与动态行为设计分离； 试探性； 反复性和多步性。</li><li>设计方式：直观设计法、规范设计法、计算机辅助设计法和自动化设计法。</li></ol><h3 id="关系数据库设计的基本步骤"><a href="#关系数据库设计的基本步骤" class="headerlink" title="关系数据库设计的基本步骤"></a>关系数据库设计的基本步骤</h3><p>数据库设计分为需求分析、概念结构设计、逻辑结构设计、物理结构设计、应用程序设计和运行维护6个阶段，如图所示。<br><img src="/img/md/architecture/image6.jpg" alt="关系数据库设计的基本步骤"></p><h2 id="分布式数据库"><a href="#分布式数据库" class="headerlink" title="分布式数据库"></a>分布式数据库</h2><p>分布式数据库系统(Distributed DataBase System, DDBS)是针对地理上分散, 而管理上又需要不同程度集中管理的需求而提出的一种数据管理信息系统。满足分布性、逻辑相关性、场地透明性和场地自治性的数据库系统被称为完全分布式数据库系统。</p><h3 id="分布式数据库设计的特点"><a href="#分布式数据库设计的特点" class="headerlink" title="分布式数据库设计的特点"></a>分布式数据库设计的特点</h3><p>数据的集中控制性、数据独立性、数据冗余可控性、场地自治性和存取的有效性。</p><h3 id="分布式数据库体系结构"><a href="#分布式数据库体系结构" class="headerlink" title="分布式数据库体系结构"></a>分布式数据库体系结构</h3><p><img src="/img/md/architecture/image7.jpg" alt="分布式数据库体系结构"><br>4层模式划分为全局外层、全局概念层、局部概念层和局部内层，在各层间还有相应的层间映射。这种4层模式适用于同构型分布式数据库系统，也适用于异构型分布式数据库系统。</p><h2 id="常用数据库管理系统"><a href="#常用数据库管理系统" class="headerlink" title="常用数据库管理系统"></a>常用数据库管理系统</h2><p>计算机科学技术不断发展，数据库管理系统也不断发展进化， MySQL AB 公司(2009 年被Oracle 公司收购) 的 MySQL、Microsoft公司的 Access等是小型关系数据库管理系统的代表, Oracle 公司的Oracle、Microsoft公司的 SQL Server、IBM 公司的 DB2等是功能强大的大型关系数据库管理系统的代表。</p><h2 id="大型数据库管理系统的特点"><a href="#大型数据库管理系统的特点" class="headerlink" title="大型数据库管理系统的特点"></a>大型数据库管理系统的特点</h2><ol><li>基于网络环境的数据库管理系统。可以用于 C&#x2F;S结构的数据库应用系统，也可以用于结构的数据库应用系统。</li><li>支持大规模的应用。可支持数千个并发用户、多达上百万的事务处理和超过数百GB的数据容量。</li><li>提供的自动锁功能使得并发用户可以安全而高效地访问数据。</li><li>可以保证系统的高度安全性。</li><li>提供方便而灵活的数据备份和恢复方法及设备镜像功能，还可以利用操作系统提供容错功能，确保设计良好的应用中的数据在发生意外的情况下可以最大限度地被恢复。</li><li>提供多种维护数据完整性的手段。</li><li>提供了方便易用的分布式处理功能。</li></ol><h1 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h1><h2 id="中间件分类"><a href="#中间件分类" class="headerlink" title="中间件分类"></a>中间件分类</h2><ol><li>通信处理(消息) 中间件</li><li>事务处理(交易)中间件</li><li>数据存取管理中间件</li><li>Web服务器中间件</li><li>安全中间件</li><li>跨平台和架构的中间件</li><li>专用平台中间件</li><li>网络中间件</li></ol><h1 id="软件构件"><a href="#软件构件" class="headerlink" title="软件构件"></a>软件构件</h1><p>构件又称为组件，是一个自包容、可复用的程序集。构件是一个程序集， 或者说是一组程序的集合。这个集合可能会以各种方式体现出来，如源程序或二进制的代码。</p><h2 id="软件构件的组装模型"><a href="#软件构件的组装模型" class="headerlink" title="软件构件的组装模型"></a>软件构件的组装模型</h2><p>随着软件构件技术的发展，人们开始尝试利用软件构件进行搭积木式的开发，即构件组装模型。</p><h2 id="商用构件的标准规范"><a href="#商用构件的标准规范" class="headerlink" title="商用构件的标准规范"></a>商用构件的标准规范</h2><p>当前, 主流的商用构件标准规范包括对象管理组织(Object Management Group, OMG)的CORBA、Sun的J2EE 和Microsoft 的DNA。</p><h1 id="嵌入式系统及软件"><a href="#嵌入式系统及软件" class="headerlink" title="嵌入式系统及软件"></a>嵌入式系统及软件</h1><h2 id="嵌入式系统的组成"><a href="#嵌入式系统的组成" class="headerlink" title="嵌入式系统的组成"></a>嵌入式系统的组成</h2><h3 id="嵌入式处理器"><a href="#嵌入式处理器" class="headerlink" title="嵌入式处理器"></a>嵌入式处理器</h3><p>由于嵌入式系统一般是在恶劣的环境条件下工作，与一般处理器相比，嵌入式处理器应可抵抗恶劣环境的影响，比如高温、寒冷、电磁、加速度等环境因素。为适应恶劣环境， 嵌入式处理器芯片除满足低功耗、体积小等需求外， 根据不同环境需求， 其工艺可分为民用、工业和军用等三个档次。</p><h3 id="相关支撑硬件"><a href="#相关支撑硬件" class="headerlink" title="相关支撑硬件"></a>相关支撑硬件</h3><p>相关支撑硬件是指除嵌入式处理器以外的构成系统的其他硬件， 包括存储器、定时器、总线、IO接口以及相关专用硬件。</p><h3 id="嵌入式操作系统"><a href="#嵌入式操作系统" class="headerlink" title="嵌入式操作系统"></a>嵌入式操作系统</h3><p>嵌入式操作系统是指运行在嵌入式系统中的基础软件，主要用于管理计算机资源和应用软件。与通用操作系统不同，嵌入式操作系统应具备实时性、可剪裁性和安全性等特征。</p><h3 id="支撑软件"><a href="#支撑软件" class="headerlink" title="支撑软件"></a>支撑软件</h3><p>支撑软件是指为应用软件开发与运行提供公共服务、软件开发、调试能力的软件， 支撑软件的公共服务通常运行在操作系统之上，以库的方式被应用软件所引用。</p><h3 id="应用软件"><a href="#应用软件" class="headerlink" title="应用软件"></a>应用软件</h3><p>应用软件是指为完成嵌入式系统的某一特定目标所开发的软件。</p><h2 id="嵌入式系统的特点"><a href="#嵌入式系统的特点" class="headerlink" title="嵌入式系统的特点"></a>嵌入式系统的特点</h2><ol><li>专用性强。嵌入式系统面向特定应用需求，能够把通用CPU 中许多由板卡完成的任务集成在芯片内部， 从而有利于嵌入式系统的小型化。</li><li>技术融合。嵌入式系统将先进的计算机技术、通信技术、半导体技术和电子技术与各个行业的具体应用相结合，是一个技术密集、资金密集、高度分散、不断创新的知识集成系统。</li><li>软硬一体软件为主。软件是嵌入式系统的主体，有IP核。嵌入式系统的硬件和软件都可以高效地设计，量体裁衣， 去除冗余，可以在同样的硅片面积上实现更高的性能。</li><li>比通用计算机资源少。由于嵌入式系统通常只完成少数几个任务。设计时考虑到其经济性， 不能使用通用CPU， 这就意味着管理的资源少， 成本低，结构更简单。</li><li>程序代码固化在非易失存储器中。为了提高执行速度和系统可靠性， 嵌入式系统中的软件一般都固化在存储器芯片或单片机本身中， 而不是存在磁盘中。</li><li>需专门开发工具和环境。嵌入式系统本身不具备开发能力， 即使设计完成以后，用户通常也不能对其中的程序功能进行修改，必须有一套开发工具和环境才能进行开发。</li><li>体积小、价格低、工艺先进、性能价格比高、系统配置要求低、实时性强。</li><li>对安全性和可靠性的要求高。</li></ol><h2 id="嵌入式系统的分类"><a href="#嵌入式系统的分类" class="headerlink" title="嵌入式系统的分类"></a>嵌入式系统的分类</h2><p>根据不同用途可将嵌入式系统划分为嵌入式实时系统和嵌入式非实时系统两种， 而实时系统又可分为强实时(Hard Real-Time) 系统和弱实时(WeakReal-Time) 系统。<br>如果从安全性要求看, 嵌入式系统还可分为安全攸关(Safety-Critical 或 Life-Critical)系统和非安全攸关系统。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软考知识 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习,软考 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>系统架构设计师-学习第四天</title>
+      <link href="/2024/02/04/architecture-4/"/>
+      <url>/2024/02/04/architecture-4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="计算机软件"><a href="#计算机软件" class="headerlink" title="计算机软件"></a>计算机软件</h1><h2 id="操作系统的特征"><a href="#操作系统的特征" class="headerlink" title="操作系统的特征"></a>操作系统的特征</h2><h3 id="并发性"><a href="#并发性" class="headerlink" title="并发性"></a>并发性</h3><blockquote><p>在多道程序环境下， 并发性是指在一段时间内，宏观上有多个程序同时运行， 但实际上在单CPU的运行环境，每一个时刻只有一个程序在执行。因此，从微观上来说， 各个程序是交替、轮流执行的， 如果计算机系统中有多个CPU，则可将多个程序分配到不同CPU上实现并行运行。</p></blockquote><h3 id="共享性"><a href="#共享性" class="headerlink" title="共享性"></a>共享性</h3><blockquote><p>共享是指操作系统中的资源(包括硬件资源和信息资源) 可以被多个并发执行的进程(线程) 共同使用，而不是被一个进程所独占。出于经济上的考虑，一次性向每个用户程序分别提供它所需的全部资源不但是浪费的，有时也是不可能的。现实的方法是让操作系统和多个用户程序共用一套计算机系统的所有资源，因此必然会产生共享资源的需要。共享资源的方式可以分为同时共享和互斥共享。</p></blockquote><h3 id="虚拟性"><a href="#虚拟性" class="headerlink" title="虚拟性"></a>虚拟性</h3><blockquote><p>虚拟性是指操作系统中的一种管理技术，它是把物理上的一个实体变成逻辑上的多个对应物，或把物理上的多个实体变成逻辑上的一个对应物的技术。前者是实际存在的，而后者是虚构假想的，是用户感觉上的东西。采用虚拟技术的目的是为用户提供易于使用且方便高效的操作环境。</p></blockquote><h3 id="不确定性"><a href="#不确定性" class="headerlink" title="不确定性"></a>不确定性</h3><blockquote><p>在多道程序环境中，允许多个进程并发执行， 但由于资源有限，在多数情况下进程的执行不是一贯到底的， 而是“走走停停”。例如一个进程，在CPU上运行一段时间后，由于等待资源或某事件发生，它被暂停执行， 将CPU转让给另一个进程执行。系统中的进程何时执行，何时暂停， 以什么样的速度向前推进， 进程总共要花多少时间执行才能完成，这些都是不可预知的。或者说该进程是以不确定的方式运行的，其导致的直接后果是程序执行结果可能不唯一。</p></blockquote><h2 id="操作系统的分类"><a href="#操作系统的分类" class="headerlink" title="操作系统的分类"></a>操作系统的分类</h2><h3 id="批处理操作系统"><a href="#批处理操作系统" class="headerlink" title="批处理操作系统"></a>批处理操作系统</h3><p>批处理操作系统分为单道批处理和多道批处理。</p><h3 id="分时操作系统"><a href="#分时操作系统" class="headerlink" title="分时操作系统"></a>分时操作系统</h3><p>分时系统主要有4个特点： 多路性、独立性、交互性和及时性。</p><h3 id="实时操作系统"><a href="#实时操作系统" class="headerlink" title="实时操作系统"></a>实时操作系统</h3><p>实时系统分为实时控制系统和实时信息处理系统。</p><h3 id="网络操作系统"><a href="#网络操作系统" class="headerlink" title="网络操作系统"></a>网络操作系统</h3><p>网络操作系统是使联网计算机能方便而有效地共享网络资源，为网络用户提供各种服务的软件和有关协议的集合。</p><h3 id="分布式操作系统"><a href="#分布式操作系统" class="headerlink" title="分布式操作系统"></a>分布式操作系统</h3><p>分布式计算机系统是由多个分散的计算机经连接而成的计算机系统，系统中的计算机无主、次之分，任意两台计算机可以通过通信交换信息。</p><h3 id="微型计算机操作系统"><a href="#微型计算机操作系统" class="headerlink" title="微型计算机操作系统"></a>微型计算机操作系统</h3><p>微型计算机操作系统简称微机操作系统,常用的有 Windows、Mac OS、Linux。</p><h3 id="嵌入式操作系统"><a href="#嵌入式操作系统" class="headerlink" title="嵌入式操作系统"></a>嵌入式操作系统</h3><ol><li>微型化： 从性能和成本角度考虑，希望占用的资源和系统代码量少， 如内存少、字长短、运行速度有限、能源少(用微小型电池)。</li><li>可定制： 从减少成本和缩短研发周期考虑，要求嵌入式操作系统能运行在不同的微处理器平台上，能针对硬件变化进行结构与功能上的配置， 以满足不同应用需要。</li><li>实时性： 嵌入式操作系统主要应用于过程控制、数据采集、传输通信、多媒体信息及关键要害领域需要迅速响应的场合， 所以对实时性要求较高。</li><li>可靠性： 系统构件、模块和体系结构必须达到应有的可靠性， 对关键要害应用还要提供容错和防故障措施。</li><li>易移植性: 为了提高系统的易移植性,通常采用硬件抽象层(Hardware AbstractionLevel, HAL) 和板级支撑包(Board Support Package, BSP) 的底层设计技术。</li></ol><p>常见的嵌入式实时操作系统有 VxWorks、μClinux、PalmOS、WindowsCE、μC&#x2F;OS-Ⅱ和eCos等。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软考知识 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习,软考 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>第二曲线创新</title>
       <link href="/2024/01/17/book-2/"/>
       <url>/2024/01/17/book-2/</url>
@@ -58,7 +108,7 @@
       <link href="/2024/01/03/architecture-3/"/>
       <url>/2024/01/03/architecture-3/</url>
       
-        <content type="html"><![CDATA[<h1 id="计算机系统基础知识"><a href="#计算机系统基础知识" class="headerlink" title="计算机系统基础知识"></a>计算机系统基础知识</h1><h2 id="计算机系统概述"><a href="#计算机系统概述" class="headerlink" title="计算机系统概述"></a>计算机系统概述</h2><p> <img src="/img/md/architecture/image3.png" alt="典型计算机系统的组成"><br> <img src="/img/md/architecture/image4.png" alt="计算机系统的分类示意图"></p><h2 id="计算机硬件"><a href="#计算机硬件" class="headerlink" title="计算机硬件"></a>计算机硬件</h2><h3 id="计算机硬件组成"><a href="#计算机硬件组成" class="headerlink" title="计算机硬件组成"></a>计算机硬件组成</h3><ul><li>处理器</li><li>存储器</li><li>总线</li><li>接口</li><li>外部设备</li></ul><h3 id="处理器（CPU）"><a href="#处理器（CPU）" class="headerlink" title="处理器（CPU）"></a>处理器（CPU）</h3><blockquote><p>作为计算机系统运算和控制的核心部件，经历了长期演化过程</p></blockquote><p><img src="/img/md/architecture/image5.png" alt="典型的处理器体系结构示意图"></p><h3 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h3><blockquote><p>利用半导体、磁、光等介质制成用于存储数据的电子设备</p></blockquote><ol><li>片上缓存：在处理器核心中直接集成的缓存，一般为SRAM结构，实现数据的快速读取。它容量较小一般为16kB-512kB，按照不同的设计可能划分为一级或二级。</li><li>片外缓存：在处理器核心外的缓存，需要经过交换互联开发访问，一般也是由SRAM构成，容量较片上缓存略大，可以为256kB-4MB。按照层次被称为L2Cache或L3Cache，或者成为平台Cache。</li><li>主存（内存）：通常采用DRAM结构，以独立的部件&#x2F;芯片存在，通过总线与处理器链接。DRAM依赖不断充电维持其中的数据，容量在数百MB至数十GB之间。</li><li>外存：可以是磁带、磁盘、光盘和各类Flash等介质器件，这类设备访问速度慢，但容量大，且在掉点后能够保持其数据。</li></ol><h3 id="总线（Bus）"><a href="#总线（Bus）" class="headerlink" title="总线（Bus）"></a>总线（Bus）</h3><blockquote><p>是指计算机部件间遵循某一特定协议实现数据交换的形式，即以一种特定格式按照规定的控制逻辑实现部件间的数据传输。</p></blockquote><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><blockquote><p>是指同意计算机不同功能层之间的通信规则</p></blockquote><h3 id="外部设备"><a href="#外部设备" class="headerlink" title="外部设备"></a>外部设备</h3><blockquote><p>也成为外围设备，是计算机的非必要设备</p></blockquote><h2 id="计算机软件"><a href="#计算机软件" class="headerlink" title="计算机软件"></a>计算机软件</h2>]]></content>
+        <content type="html"><![CDATA[<h1 id="计算机系统基础知识"><a href="#计算机系统基础知识" class="headerlink" title="计算机系统基础知识"></a>计算机系统基础知识</h1><h2 id="计算机系统概述"><a href="#计算机系统概述" class="headerlink" title="计算机系统概述"></a>计算机系统概述</h2><p> <img src="/img/md/architecture/image3.png" alt="典型计算机系统的组成"><br> <img src="/img/md/architecture/image4.png" alt="计算机系统的分类示意图"></p><h2 id="计算机硬件"><a href="#计算机硬件" class="headerlink" title="计算机硬件"></a>计算机硬件</h2><h3 id="计算机硬件组成"><a href="#计算机硬件组成" class="headerlink" title="计算机硬件组成"></a>计算机硬件组成</h3><ul><li>处理器</li><li>存储器</li><li>总线</li><li>接口</li><li>外部设备</li></ul><h3 id="处理器（CPU）"><a href="#处理器（CPU）" class="headerlink" title="处理器（CPU）"></a>处理器（CPU）</h3><blockquote><p>作为计算机系统运算和控制的核心部件，经历了长期演化过程</p></blockquote><p><img src="/img/md/architecture/image5.png" alt="典型的处理器体系结构示意图"></p><h3 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h3><blockquote><p>利用半导体、磁、光等介质制成用于存储数据的电子设备</p></blockquote><ol><li>片上缓存：在处理器核心中直接集成的缓存，一般为SRAM结构，实现数据的快速读取。它容量较小一般为16kB-512kB，按照不同的设计可能划分为一级或二级。</li><li>片外缓存：在处理器核心外的缓存，需要经过交换互联开发访问，一般也是由SRAM构成，容量较片上缓存略大，可以为256kB-4MB。按照层次被称为L2Cache或L3Cache，或者成为平台Cache。</li><li>主存（内存）：通常采用DRAM结构，以独立的部件&#x2F;芯片存在，通过总线与处理器链接。DRAM依赖不断充电维持其中的数据，容量在数百MB至数十GB之间。</li><li>外存：可以是磁带、磁盘、光盘和各类Flash等介质器件，这类设备访问速度慢，但容量大，且在掉点后能够保持其数据。</li></ol><h3 id="总线（Bus）"><a href="#总线（Bus）" class="headerlink" title="总线（Bus）"></a>总线（Bus）</h3><blockquote><p>是指计算机部件间遵循某一特定协议实现数据交换的形式，即以一种特定格式按照规定的控制逻辑实现部件间的数据传输。</p></blockquote><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><blockquote><p>是指同意计算机不同功能层之间的通信规则</p></blockquote><h3 id="外部设备"><a href="#外部设备" class="headerlink" title="外部设备"></a>外部设备</h3><blockquote><p>也成为外围设备，是计算机的非必要设备</p></blockquote>]]></content>
       
       
       <categories>
