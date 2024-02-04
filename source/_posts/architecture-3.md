@@ -39,5 +39,3 @@ cover: /img/md/architecture.jpeg
 
 ### 外部设备
 >也成为外围设备，是计算机的非必要设备
-
-## 计算机软件
